@@ -1,0 +1,40 @@
+
+@import 'bourbon.scss';
+@import 'normalize.scss';
+
+body {
+  color: #323232;
+  background: #f8f8f8;
+  padding-bottom: 72px;
+}
+
+header {
+  background: #ffffff;
+  padding: 24px 72px;
+  margin-bottom: 32px;
+  @include clearfix();
+
+  @media (max-width: 780px) {
+    padding: 24px;
+  }
+}
+
+main {
+  padding: 0 72px;
+
+  @media (max-width: 780px) {
+    padding: 0 24px;
+  }
+}
+
+h1 {
+  font-weight: lighter;
+  font-size: 20px;
+  float: right;
+}
+
+p {
+  font-size: 14px;
+  float: right;
+  clear: both;
+}
