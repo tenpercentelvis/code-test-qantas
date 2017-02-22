@@ -1,7 +1,13 @@
 
-# Webpack 2 Starter
+# Qantas developer challenge
 
-### Summary
+### Objectives
+
+- Create a single drop down that lists all of the genres found in the data set.
+- Create a table where each row is a movie, with a column for the movie name and a column for a list of genres that the movie is in.
+- When a genre is selected in the drop down, it should filter the table to show only movies that have the selected genre.
+
+### Overview
 
 - React, Redux, SCSS modules, JS Lint
 - 1 example view
