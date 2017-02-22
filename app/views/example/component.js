@@ -54,20 +54,18 @@ class Example extends Component {
 
     // push all genres from each item into new 'genres' array
 
-    data.forEach((item) => {
-      item.genres.forEach((genre) => {
-        genres.push(genre);
+    data.forEach((items) => {
+      items.genres.forEach((item) => {
+        if (!genres.includes(item)) {
+          genres.push(item);
+        }
       });
     });
 
-    // create new set with 'genres' array, spread unique values into new 'uniqueGenres' array
-
-    const uniqueGenres = [...new Set(genres)];
-
-    // set genres state with 'uniqueGenres' array
+    // set genres state with unique 'genres' array
 
     this.setState({
-      genres: uniqueGenres,
+      genres,
     });
   }
 
@@ -88,7 +86,7 @@ class Example extends Component {
 
     // set data to filtered data
     this.setState({
-      data: filtered,
+      data: value === 'Select genre...' ? example.items : filtered,
     });
 
   }
@@ -112,7 +110,8 @@ class Example extends Component {
 
         <main role="main">
           <div className={styles['select']}>
-            <select onChange={this.filterData}>
+            <select onChange={this.filterData} defaultValue="Select genre...">
+              <option>Select genre...</option>
               {options}
             </select>
           </div>

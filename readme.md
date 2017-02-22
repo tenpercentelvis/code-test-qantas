@@ -20,7 +20,7 @@ In project directory run the following:
 ```
 npm install
 npm start
-npm test (run unit tests)
+npm test (run unit tests) - Enters into watch mode, press 'a' to run all tests
 
 ```
 
@@ -30,7 +30,6 @@ npm test (run unit tests)
 - includes (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
 - join (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 - toString (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
-- set (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
 ### Babel plugins
 
