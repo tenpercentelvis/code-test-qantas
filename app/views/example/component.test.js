@@ -16,12 +16,11 @@ describe('Movies', () => {
         actions={{
           getData: () => {}
         }}
-        data={{
+        example={{
           items: [
             {'genres': ['Action', 'Adventure']},
             {'genres': ['Animation', 'Adventure']},
-          ]
-        }}
+        ]}}
       />
     );
 
@@ -29,21 +28,34 @@ describe('Movies', () => {
 
   it('Filter data', () => {
 
+    // new instance of component
     const instance = component.instance();
 
-    // set
-    // act
-    // verify
+    // setup - mock select onChange event with value 'Action'
+    const event = {
+      target: {
+        value: 'Action'
+      }
+    };
+
+    // act - call filterData with mock event
+    instance.filterData(event);
+
+    // verify - return all items that include a genre of 'Action'
+    expect(instance.state.data).toEqual([{'genres': ['Action', 'Adventure']}]);
 
   });
 
   it('Set genres', () => {
 
+    // new instance of component
     const instance = component.instance();
 
-    // set
-    // act
-    // verify
+    // act - call setGenres with mock data
+    instance.setGenres(instance.props.example.items)
+
+    // verify - return new array of unique genres
+    expect(instance.state.genres).toEqual(['Action', 'Adventure', 'Animation']);
 
   });
 
