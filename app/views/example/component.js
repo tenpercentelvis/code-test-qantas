@@ -10,10 +10,12 @@ class Example extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: [],
       genres: [],
     };
-    this.handleEvent = this.handleEvent.bind(this);
-    this.getGenres = this.getGenres.bind(this);
+    this.setData = this.setData.bind(this);
+    this.setGenres = this.setGenres.bind(this);
+    this.filterData = this.filterData.bind(this);
   }
 
   // get data from api when component mounts
@@ -25,16 +27,32 @@ class Example extends Component {
     getData();
   }
 
+  // set data & genres when api data is recieved
+
   componentWillReceiveProps(nextProps) {
 
     const { example } = nextProps;
 
-    this.getGenres(example.items);
+    this.setData(example.items);
+    this.setGenres(example.items);
   }
 
-  getGenres(data) {
+  // set local data state with data returned from api
+
+  setData(data) {
+
+    this.setState({
+      data,
+    });
+  }
+
+  // set unique genres
+
+  setGenres(data) {
 
     const genres = [];
+
+    // push all genres from each item into new 'genres' array
 
     data.forEach((item) => {
       item.genres.forEach((genre) => {
@@ -42,42 +60,40 @@ class Example extends Component {
       });
     });
 
-    // spread unique values of genres array into a new array using a new set
+    // create new set with 'genres' array, spread unique values into new 'uniqueGenres' array
 
     const uniqueGenres = [...new Set(genres)];
+
+    // set genres state with 'uniqueGenres' array
 
     this.setState({
       genres: uniqueGenres,
     });
   }
 
-  /*
-    handleEvent
-    - passed into list component as action prop
-    - passed from list component to button component as action prop
-    - called by button component with onClick event
-    - called with value parameter from value prop on button component
-  */
+  // filter movie data by selected genre
 
-  handleEvent(event) {
+  filterData(event) {
 
-    const { handleEvent } = this.props.actions;
-
+    const { example } = this.props;
     const { value } = event.target;
 
+    // return only items where item genre includes selected genre value
+    const filter = (item) => {
+      return item.genres.includes(value);
+    };
+
+    // filter data
+    const filtered = example.items.filter(filter);
+
+    // set data to filtered data
     this.setState({
-      selected: value,
+      data: filtered,
     });
 
-    handleEvent(value);
   }
 
-  // render component
-
   render() {
-
-    // get example data
-    const { example } = this.props;
 
     // create genre options
     const options = this.state.genres.map((item, index) => {
@@ -89,18 +105,18 @@ class Example extends Component {
     return (
       <section>
 
-        <header>
+        <header role="banner">
           <a className={styles['logo']} href="/">Qantas Airways</a>
           <h1>Qantas developer challenge</h1>
         </header>
 
         <main role="main">
           <div className={styles['select']}>
-            <select onChange={this.handleEvent}>
+            <select onChange={this.filterData}>
               {options}
             </select>
           </div>
-          <Table data={example} />
+          <Table data={this.state.data} />
         </main>
 
       </section>

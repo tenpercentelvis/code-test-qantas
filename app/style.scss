@@ -38,3 +38,17 @@ p {
   float: right;
   clear: both;
 }
+
+select {
+  width: 100%;
+  outline: none;
+  width: 100%;
+  outline: none;
+  background: none;
+  border: none;
+  color: #323232;
+  font-weight: bold;
+  font-size: 14px !important;
+  height: 56px;
+  -webkit-appearance: menulist-button;
+}

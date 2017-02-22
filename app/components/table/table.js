@@ -10,7 +10,7 @@ const Table = ({ data }) => {
 
   // map data items
 
-  const items = data.items.map((item, index) => {
+  const items = data.map((item, index) => {
     return (
       <tr className={styles['table-row']} key={index}>
         <td className={styles['table-data']}>{item.title}</td>
@@ -44,7 +44,7 @@ const Table = ({ data }) => {
 };
 
 Table.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
 };
 
 export default Table;

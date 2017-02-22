@@ -12,9 +12,6 @@ const example = (state = defaultState, action) => {
         ...action.data,
       });
 
-    case 'handleEvent':
-      return state;
-
     default:
       return state;
 

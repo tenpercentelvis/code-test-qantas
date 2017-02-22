@@ -20,11 +20,3 @@ export const getData = () => {
       });
   };
 };
-
-// handle user interaction
-export const handleEvent = (value) => {
-  return {
-    type: 'handleEvent',
-    value,
-  };
-};

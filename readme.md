@@ -18,6 +18,14 @@ npm test (run unit tests)
 
 ```
 
+### Prototype methods used
+
+- filter (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- includes (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+- join (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+- toString (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
+- set (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
 ### Babel plugins
 
 - react (https://babeljs.io/docs/plugins/preset-react/)
